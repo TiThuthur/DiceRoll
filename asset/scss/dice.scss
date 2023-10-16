@@ -7,9 +7,19 @@
   width: 200px;
   height: 200px;
   transform-style: preserve-3d; // on précise que l'objet sera en 3D
-  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg); //initialisation de la position de départ tester avec la rotation 3d
-  animation: roll 5s linear infinite;
-
+  transform: rotateX(270deg);
+  /*
+  Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
+  sans rien toucher; one
+  transform: rotateY(90deg); two
+  transform: rotateX(90deg); three
+  transform: rotateX(270deg);quatre
+  transform: rotateY(270deg);cinq
+  transform: rotateY(180deg);six
+  */
+  //rotateX(150deg) rotateZ(315deg); //initialisation de la position de départ tester avec la rotation 3d
+  // animation: roll 5s linear infinite;
+  
   .side {
     // définition de la forme de chaques faces
     width: 100%;
@@ -38,6 +48,7 @@
   */
   .one {
     transform: translateZ(100px);
+    
   }
 
   .two {

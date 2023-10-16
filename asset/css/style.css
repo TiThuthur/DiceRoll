@@ -5,8 +5,16 @@
   width: 200px;
   height: 200px;
   transform-style: preserve-3d;
-  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
-  animation: roll 5s linear infinite;
+  transform: rotateX(270deg);
+  /*
+  Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
+  sans rien toucher; one
+  transform: rotateY(90deg); two
+  transform: rotateX(90deg); three
+  transform: rotateX(270deg);quatre
+  transform: rotateY(270deg);cinq
+  transform: rotateY(180deg);six
+  */
   /*par la suite on définit pour chaques face :
   dans le before => les placements de chaques points
   dans la "racine" le placement de la face en question
