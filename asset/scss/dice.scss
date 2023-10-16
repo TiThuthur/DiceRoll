@@ -1,0 +1,92 @@
+//source : https://daily-dev-tips.com/posts/creating-a-3d-dice-in-css/
+
+.dice {
+  //définition des dimension du cube
+  margin: 90px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d; // on précise que l'objet sera en 3D
+  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg); //initialisation de la position de départ tester avec la rotation 3d
+  animation: roll 5s linear infinite;
+
+  .side {
+    // définition de la forme de chaques faces
+    width: 100%;
+    height: 100%;
+    background: #8b0000;
+    border: 2px solid black;
+    position: absolute;
+    // opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    &:before {
+      //point blanc
+      content: "";
+      width: 20%;
+      height: 20%;
+      background: #f0f8ff;
+      border-radius: 50%;
+    }
+  }
+  /*par la suite on définit pour chaques face :
+  dans le before => les placements de chaques points
+  dans la "racine" le placement de la face en question
+  */
+  .one {
+    transform: translateZ(100px);
+  }
+
+  .two {
+    transform: translateX(-100px) rotateY(-90deg);
+    &::before {
+      background: transparent;
+      box-shadow: #f0f8ff -50px -50px 0px 0px, #f0f8ff 50px 50px 0px 0px;
+    }
+  }
+
+  .three {
+    transform: translateY(100px) rotateX(90deg);
+    &::before {
+      box-shadow: #f0f8ff -50px -50px 0px 0px, #f0f8ff 50px 50px 0px 0px;
+    }
+  }
+
+  .four {
+    transform: translateY(-100px) rotateX(90deg);
+    &::before {
+      background: transparent;
+      box-shadow: #f0f8ff -50px 50px 0px 0px, #f0f8ff -50px -50px 0px 0px,
+        #f0f8ff 50px 50px 0px 0px, #f0f8ff 50px -50px 0 0;
+    }
+  }
+  .five {
+    transform: translateX(100px) rotateY(90deg);
+    &::before {
+      box-shadow: #f0f8ff -50px -50px 0px 0px, #f0f8ff -50px 50px 0px 0px,
+        #f0f8ff 50px -50px 0px 0px, #f0f8ff 50px 50px 0px 0px;
+    }
+  }
+
+  .six {
+    transform: translateZ(-100px);
+    &:before {
+      background: transparent;
+      box-shadow: #f0f8ff -50px -50px 0px 0px, #f0f8ff -50px 0px 0px 0px,
+        #f0f8ff -50px 50px 0px 0px, #f0f8ff 50px -50px 0px 0px,
+        #f0f8ff 50px 0px 0px 0px, #f0f8ff 50px 50px 0px 0px;
+    }
+  }
+}
+
+@keyframes roll {
+  from {
+    transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+  }
+}
