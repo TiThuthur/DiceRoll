@@ -1,5 +1,9 @@
 //source : https://daily-dev-tips.com/posts/creating-a-3d-dice-in-css/
 
+button:active + .dice {
+  transform: rotateX(180deg);
+}
+
 .dice {
   //définition des dimension du cube
   margin: 90px;
@@ -7,7 +11,7 @@
   width: 200px;
   height: 200px;
   transform-style: preserve-3d; // on précise que l'objet sera en 3D
-  transform: rotateX(270deg);
+  transition: transform 0.5s ease-in-out;
   /*
   Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
   sans rien toucher; one
@@ -18,8 +22,26 @@
   transform: rotateY(180deg);six
   */
   //rotateX(150deg) rotateZ(315deg); //initialisation de la position de départ tester avec la rotation 3d
-  // animation: roll 5s linear infinite;
-  
+  &.unactive {
+    animation: roll 5s linear infinite;
+  }
+
+  &.two {
+    transform: rotateY(90deg);
+  }
+  &.three {
+    transform: rotateX(90deg);
+  }
+  &.four {
+    transform: rotateX(270deg);
+  }
+  &.five {
+    transform: rotateY(270deg);
+  }
+  &.six {
+    transform: rotateY(180deg);
+  }
+
   .side {
     // définition de la forme de chaques faces
     width: 100%;
@@ -48,7 +70,6 @@
   */
   .one {
     transform: translateZ(100px);
-    
   }
 
   .two {
@@ -95,9 +116,9 @@
 
 @keyframes roll {
   from {
-    transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+    transform: rotateY(0) rotateX(0deg) rotateZ(0deg);
   }
   to {
-    transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+    transform: rotateY(360deg) rotateX(360deg) rotateZ(0deg);
   }
 }

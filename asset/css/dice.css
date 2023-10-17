@@ -1,11 +1,15 @@
 @charset "UTF-8";
+button:active + .dice {
+  transform: rotateX(180deg);
+}
+
 .dice {
   margin: 90px;
   position: relative;
   width: 200px;
   height: 200px;
   transform-style: preserve-3d;
-  transform: rotateX(270deg);
+  transition: transform 0.5s ease-in-out;
   /*
   Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
   sans rien toucher; one
@@ -19,6 +23,24 @@
   dans le before => les placements de chaques points
   dans la "racine" le placement de la face en question
   */
+}
+.dice.unactive {
+  animation: roll 5s linear infinite;
+}
+.dice.two {
+  transform: rotateY(90deg);
+}
+.dice.three {
+  transform: rotateX(90deg);
+}
+.dice.four {
+  transform: rotateX(270deg);
+}
+.dice.five {
+  transform: rotateY(270deg);
+}
+.dice.six {
+  transform: rotateY(180deg);
 }
 .dice .side {
   width: 100%;
@@ -77,10 +99,10 @@
 
 @keyframes roll {
   from {
-    transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+    transform: rotateY(0) rotateX(0deg) rotateZ(0deg);
   }
   to {
-    transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+    transform: rotateY(360deg) rotateX(360deg) rotateZ(0deg);
   }
 }
 
