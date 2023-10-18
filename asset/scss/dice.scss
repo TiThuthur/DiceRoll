@@ -1,9 +1,5 @@
 //source : https://daily-dev-tips.com/posts/creating-a-3d-dice-in-css/
 
-button:active + .dice {
-  transform: rotateX(180deg);
-}
-
 .dice {
   //définition des dimension du cube
   margin: 90px;

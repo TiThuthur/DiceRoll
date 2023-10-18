@@ -1,8 +1,4 @@
 @charset "UTF-8";
-button:active + .dice {
-  transform: rotateX(180deg);
-}
-
 .dice {
   margin: 90px;
   position: relative;
