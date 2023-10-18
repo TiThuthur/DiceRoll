@@ -1,8 +1,8 @@
 const button = document.getElementById("roll-button");
 let dice = document.querySelector(".dice");
 
-function roll() {
-  const promise = fetch("https://api.random.org/json-rpc/4/invoke", {
+async function roll() {
+  const promise = await fetch("https://api.random.org/json-rpc/4/invoke", {
     method: "POST",
     body: JSON.stringify({
       id: 42,
@@ -18,32 +18,30 @@ function roll() {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return console.log(data);
-    });
-  console.log(promise.data);
-  // }).then((response) => {
-  //   return JSON.parse(response.body.result.data[0]);
-  // });
-  // return promise.result.data[0]
+  });
+  const rollInterger = await promise.json();
+  console.log(rollInterger.result.random.data[0]);
+  return rollInterger.result.random.data[0];
 }
 
 function makeResult(rollInterger) {
   console.log(rollInterger);
   switch (rollInterger) {
     case 1:
+      dice.classList.add("one");
+      break;
     case 2:
       dice.classList.add("two");
+      break;
     case 3:
       dice.classList.add("three");
+      break;
     case 4:
       dice.classList.add("four");
+      break;
     case 5:
       dice.classList.add("five");
+      break;
     case 6:
       dice.classList.add("six");
       break;
@@ -56,7 +54,6 @@ function makeResult(rollInterger) {
 
 button.addEventListener("click", (event) => {
   dice.classList.remove("unactive");
-  // makeResult(roll());
-  roll();
+  makeResult(roll());
 });
 dice.className.add("unactive");
