@@ -1,4 +1,4 @@
-const button = document.getElementById("getRandomInteger-button");
+const button = document.getElementById("roll-button");
 let dice = document.querySelector(".dice");
 
 const url = "https://api.random.org/json-rpc/4/invoke";
@@ -76,6 +76,7 @@ function makeResult(rollInteger) {
 }
 
 button.addEventListener("click", (event) => {
+<<<<<<< HEAD
   dice.classList.remove("unactive");
   const randomInteger = fetch(url, message)
     .then((response) => {
@@ -92,8 +93,22 @@ button.addEventListener("click", (event) => {
     });
   console.log(randomInteger.then((response) => console.log(response)));
   // makeResult(randomInteger);
+=======
+  const randomInteger = fetch(url, message).then((response) => {
+    return response.json();
+  });
+  const number = () =>
+    randomInteger.then((response) => {
+      console.log(response.result.random.data[0]);
+      makeResult(response.result.random.data[0]);
+    });
+  number();
+  dice.classList.remove("unactive");
+  let unactive = setTimeout(() => {
+    dice.removeAttribute("class");
+    dice.classList.add("dice");
+    dice.classList.add("unactive");
+    clearTimeout(unactive);
+  }, 1000);
+>>>>>>> d17233af52c21c26e00c66afa7dbb57239c36840
 });
-let unactive = setTimeout(() => {
-  dice.classList.add("unactive");
-  clearTimeout(unactive);
-}, 4000);

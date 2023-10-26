@@ -1,4 +1,7 @@
 //source : https://daily-dev-tips.com/posts/creating-a-3d-dice-in-css/
+// button:hover + .dice {
+//   transform: rotateY(0deg) rotateX(0deg) rotateZ(0);
+// }
 
 .dice {
   //définition des dimension du cube
@@ -7,7 +10,7 @@
   width: 200px;
   height: 200px;
   transform-style: preserve-3d; // on précise que l'objet sera en 3D
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   /*
   Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
   sans rien toucher; one

@@ -1,11 +1,12 @@
 @charset "UTF-8";
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 .dice {
   margin: 90px;
   position: relative;
   width: 200px;
   height: 200px;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   /*
   Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
   sans rien toucher; one
@@ -109,9 +110,20 @@ body {
   min-height: 100vh;
 }
 
-button {
-  position: relative;
-  top: 400px;
+.container {
+  width: 50vw;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  text-align: center;
+  padding: 2em;
+  margin: 2em;
+  border-radius: 2em;
 }
 
 /*# sourceMappingURL=style.css.map */

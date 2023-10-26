@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, initial-scale=1.0" />
     <title>Dice Roll</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="asset/css/style.css" />
   </head>
   <body>
-    <h1 class="title page">Welcome to dice roll !</h1>
-    <div class="container">
-      <h2 class="title instructions">
-        Cliquez sur le bouton pour lancer des dés
+    <div class="hero is-primary">
+      <h1 class="title is-9 is-primary page">Welcome to dice roll !</h1>
+      <h2 class="subtitle instructions">
+        Cliquez sur le bouton pour lancer le dé
       </h2>
-      <button type="button" id="getRandomInteger-button">Roll the dice !</button>
+    </div>
+    <div class="box container is-grey-lighter">
+      <button class="button is-9 is-info" type="button" id="roll-button">
+        Roll the dice !
+      </button>
       <div class="dice unactive">
         <div class="side one"></div>
         <div class="side two"></div>
@@ -21,8 +29,8 @@
         <div class="side five"></div>
         <div class="side six"></div>
       </div>
-      
     </div>
+
     <script src="asset/script/script.js"></script>
   </body>
 </html>

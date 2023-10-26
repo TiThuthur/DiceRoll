@@ -5,7 +5,7 @@
   width: 200px;
   height: 200px;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   /*
   Pour afficher le dessus de la face, il suffit d'appliquer une rotation sur X et Y
   sans rien toucher; one
