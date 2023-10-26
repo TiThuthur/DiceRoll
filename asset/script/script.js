@@ -77,10 +77,20 @@ function makeResult(rollInteger) {
 
 button.addEventListener("click", (event) => {
   dice.classList.remove("unactive");
-  const randomInteger = fetch(url, message).then((response) => {
-    return response.json();
-  });
-  console.log(randomInteger.PromiseResult);
+  const randomInteger = fetch(url, message)
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .catch((erreur) => {
+      console.log("erreur génération d'un chiffre aléatoire en local");
+      const min = Math.ceil(1);
+      const max = Math.floor(7);
+      const integerRandom = Math.random() * (max - min) + min;
+      console.log(integerRandom);
+      return integerRandom;
+    });
+  console.log(randomInteger.then((response) => console.log(response)));
   // makeResult(randomInteger);
 });
 let unactive = setTimeout(() => {
